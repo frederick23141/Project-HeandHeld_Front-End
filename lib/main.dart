@@ -5,11 +5,14 @@ import 'package:handheld_beta/core/config/Conexion.dart';
 import 'package:handheld_beta/core/constants/FrontEnd.dart';
 import 'package:handheld_beta/core/route/app_routes.dart';
 import 'package:handheld_beta/core/route/on_generate_route.dart';
+import 'package:handheld_beta/features/auth/auth_injection.dart';
 import 'MVC/Controller/DataBase/CambiodbController.dart';
 import 'MVC/Views/Generales/SwichCambiodb.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  //inyeccion de dependiencias
+  initAuth();
   Conexion.init();
   runApp(const MyApp());
 }
@@ -31,7 +34,7 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       title: 'App name',
       onGenerateRoute: RouteGenerator.onGenerate,
-      initialRoute: AppRoutes.login,
+      initialRoute: AppRoutes.loginpage,
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primaryColor: FrontEnd.primaryColor,
